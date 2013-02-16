@@ -2,7 +2,7 @@
 %global luapkgdir %{_datadir}/lua/%{luaver}
 
 Name:		lua-ldoc
-Version:	1.3.3
+Version:	1.3.4
 Release:	1%{?dist}
 BuildArch:	noarch
 Summary:	Lua documentation generator
@@ -80,6 +80,9 @@ sed -i 's/\r//' COPYRIGHT
 
 
 %changelog
+* Sat Feb 16 2013 Thomas Moschny <thomas.moschny@gmx.de> - 1.3.4-1
+- Update to 1.3.4.
+
 * Wed Jan 30 2013 Thomas Moschny <thomas.moschny@gmx.de> - 1.3.3-1
 - Update to 1.3.3.
 
