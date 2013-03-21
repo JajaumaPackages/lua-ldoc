@@ -2,16 +2,14 @@
 %global luapkgdir %{_datadir}/lua/%{luaver}
 
 Name:		lua-ldoc
-Version:	1.3.4
+Version:	1.3.7
 Release:	1%{?dist}
 BuildArch:	noarch
 Summary:	Lua documentation generator
 # the included css code is BSD licensed
 License:	MIT and BSD
 URL:		https://github.com/stevedonovan/ldoc
-Source0:	https://github.com/stevedonovan/LDoc/archive/%{version}.tar.gz
-# see https://github.com/stevedonovan/LDoc/pull/39
-Patch0:		lua-ldoc/LDoc-1.3.3-destdir.patch
+Source0:	https://github.com/stevedonovan/LDoc/archive/%{version}/LDoc-%{version}.tar.gz
 BuildRequires:	lua >= %{luaver}
 BuildRequires:	lua-markdown
 BuildRequires:	lua-penlight
@@ -38,7 +36,6 @@ Requires:	%{name} = %{version}-%{release}
 
 %prep
 %setup -q -n LDoc-%{version}
-%patch0 -p1
 
 
 %build
@@ -80,6 +77,9 @@ sed -i 's/\r//' COPYRIGHT
 
 
 %changelog
+* Thu Mar 21 2013 Thomas Moschny <thomas.moschny@gmx.de> - 1.3.7-1
+- Update to 1.3.7.
+
 * Sat Feb 16 2013 Thomas Moschny <thomas.moschny@gmx.de> - 1.3.4-1
 - Update to 1.3.4.
 
