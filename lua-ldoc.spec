@@ -3,7 +3,7 @@
 
 Name:		lua-ldoc
 Version:	1.3.7
-Release:	1%{?dist}
+Release:	2%{?dist}
 BuildArch:	noarch
 Summary:	Lua documentation generator
 # the included css code is BSD licensed
@@ -14,6 +14,7 @@ BuildRequires:	lua >= %{luaver}
 BuildRequires:	lua-markdown
 BuildRequires:	lua-penlight
 Requires:	lua >= %{luaver}
+Requires:	lua-markdown
 Requires:	lua-penlight
 
 %global __requires_exclude_from %{_docdir}
@@ -77,6 +78,9 @@ sed -i 's/\r//' COPYRIGHT
 
 
 %changelog
+* Thu Mar 21 2013 Thomas Moschny <thomas.moschny@gmx.de> - 1.3.7-2
+- Require lua-markdown also at run time.
+
 * Thu Mar 21 2013 Thomas Moschny <thomas.moschny@gmx.de> - 1.3.7-1
 - Update to 1.3.7.
 
