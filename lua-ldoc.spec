@@ -2,8 +2,8 @@
 %global luapkgdir %{_datadir}/lua/%{luaver}
 
 Name:		lua-ldoc
-Version:	1.3.7
-Release:	2%{?dist}
+Version:	1.3.11
+Release:	1%{?dist}
 BuildArch:	noarch
 Summary:	Lua documentation generator
 # the included css code is BSD licensed
@@ -78,6 +78,9 @@ sed -i 's/\r//' COPYRIGHT
 
 
 %changelog
+* Sat Apr 13 2013 Thomas Moschny <thomas.moschny@gmx.de> - 1.3.11-1
+- Update to 1.3.11.
+
 * Thu Mar 21 2013 Thomas Moschny <thomas.moschny@gmx.de> - 1.3.7-2
 - Require lua-markdown also at run time.
 
