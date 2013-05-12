@@ -1,9 +1,9 @@
-%global luaver 5.1
+%global luaver 5.2
 %global luapkgdir %{_datadir}/lua/%{luaver}
 
 Name:		lua-ldoc
 Version:	1.3.11
-Release:	1%{?dist}
+Release:	2%{?dist}
 BuildArch:	noarch
 Summary:	Lua documentation generator
 # the included css code is BSD licensed
@@ -78,6 +78,9 @@ sed -i 's/\r//' COPYRIGHT
 
 
 %changelog
+* Fri May 10 2013 Tom Callaway <spot@fedoraproject.org> - 1.3.11-2
+- rebuild for lua 5.2
+
 * Sat Apr 13 2013 Thomas Moschny <thomas.moschny@gmx.de> - 1.3.11-1
 - Update to 1.3.11.
 
