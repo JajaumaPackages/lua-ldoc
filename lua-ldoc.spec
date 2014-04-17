@@ -8,7 +8,7 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:		lua-ldoc
-Version:	1.4.0
+Version:	1.4.2
 Release:	1%{?dist}
 BuildArch:	noarch
 Summary:	Lua documentation generator
@@ -65,6 +65,7 @@ pushd doc
 lua ../ldoc.lua .
 popd
 markdown.lua readme.md > readme.html
+markdown.lua changes.md > changes.html
 
 # fix permissions
 chmod u=rwX,go=rX -R out
@@ -82,7 +83,7 @@ rm %{buildroot}%{luapkgdir}/ldoc/SciTE.properties \
 
 # install docs
 mkdir -p %{buildroot}%{_pkgdocdir}
-cp -av COPYRIGHT readme.html out/* \
+cp -av COPYRIGHT readme.html changes.html out/* \
   %{buildroot}%{_pkgdocdir}
 
 
@@ -99,11 +100,15 @@ cp -av COPYRIGHT readme.html out/* \
 %{_pkgdocdir}/index.html
 %{_pkgdocdir}/ldoc_pale.css
 %{_pkgdocdir}/examples
-%{_pkgdocdir}/scripts
-%{_pkgdocdir}/topics
+%{_pkgdocdir}/manual
+%{_pkgdocdir}/programs
+%{_pkgdocdir}/changes.html
 
 
 %changelog
+* Thu Apr 17 2014 Thomas Moschny <thomas.moschny@gmx.de> - 1.4.2-1
+- Update to 1.4.2.
+
 * Sun Nov 17 2013 Thomas Moschny <thomas.moschny@gmx.de> - 1.4.0-1
 - Update to 1.4.0.
 - Use a single package doc dir.
