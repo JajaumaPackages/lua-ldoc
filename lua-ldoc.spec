@@ -8,8 +8,8 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:		lua-ldoc
-Version:	1.4.2
-Release:	2%{?dist}
+Version:	1.4.3
+Release:	1%{?dist}
 BuildArch:	noarch
 Summary:	Lua documentation generator
 # the included css code is BSD licensed
@@ -78,7 +78,6 @@ rm %{buildroot}%{luapkgdir}/ldoc/markdown.lua
 
 # cleanup
 rm %{buildroot}%{luapkgdir}/ldoc/SciTE.properties \
-   %{buildroot}%{luapkgdir}/ldoc/project.ldoc.mode \
    %{buildroot}%{luapkgdir}/ldoc/config.ld
 
 # install docs
@@ -106,6 +105,9 @@ cp -av COPYRIGHT readme.html changes.html out/* \
 
 
 %changelog
+* Sun Nov 23 2014 Thomas Moschny <thomas.moschny@gmx.de> - 1.4.3-1
+- Update to 1.4.3.
+
 * Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.4.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
