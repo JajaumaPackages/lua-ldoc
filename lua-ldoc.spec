@@ -1,7 +1,11 @@
+%if 0%{?fedora} >= 21
+%global luaver 5.3
+%else
 %if 0%{?fedora} > 19
 %global luaver 5.2
 %else
 %global luaver 5.1
+%endif
 %endif
 %global luapkgdir %{_datadir}/lua/%{luaver}
 
@@ -9,7 +13,7 @@
 
 Name:		lua-ldoc
 Version:	1.4.3
-Release:	1%{?dist}
+Release:	2%{?dist}
 BuildArch:	noarch
 Summary:	Lua documentation generator
 # the included css code is BSD licensed
@@ -105,6 +109,9 @@ cp -av COPYRIGHT readme.html changes.html out/* \
 
 
 %changelog
+* Fri Jan 16 2015 Tom Callaway <spot@fedoraproject.org> - 1.4.3-2
+- rebuild for lua 5.3
+
 * Sun Nov 23 2014 Thomas Moschny <thomas.moschny@gmx.de> - 1.4.3-1
 - Update to 1.4.3.
 
