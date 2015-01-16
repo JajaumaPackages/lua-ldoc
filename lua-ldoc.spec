@@ -1,4 +1,4 @@
-%if 0%{?fedora} >= 21
+%if 0%{?fedora} >= 22
 %global luaver 5.3
 %else
 %if 0%{?fedora} > 19
