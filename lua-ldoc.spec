@@ -1,19 +1,11 @@
-%if 0%{?fedora} >= 22
 %global luaver 5.3
-%else
-%if 0%{?fedora} > 19
-%global luaver 5.2
-%else
-%global luaver 5.1
-%endif
-%endif
 %global luapkgdir %{_datadir}/lua/%{luaver}
 
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:		lua-ldoc
 Version:	1.4.3
-Release:	3%{?dist}
+Release:	4%{?dist}
 BuildArch:	noarch
 Summary:	Lua documentation generator
 # the included css code is BSD licensed
@@ -86,13 +78,17 @@ rm %{buildroot}%{luapkgdir}/ldoc/SciTE.properties \
 
 # install docs
 mkdir -p %{buildroot}%{_pkgdocdir}
-cp -av COPYRIGHT readme.html changes.html out/* \
+cp -av %{!?_licensedir:COPYRIGHT} readme.html changes.html out/* \
   %{buildroot}%{_pkgdocdir}
 
 
 %files
 %dir %{_pkgdocdir}
+%if 0%{?_licensedir:1}
+%license COPYRIGHT
+%else
 %{_pkgdocdir}/COPYRIGHT
+%endif
 %{_pkgdocdir}/readme.html
 %{_bindir}/ldoc
 %{luapkgdir}/ldoc
@@ -109,6 +105,10 @@ cp -av COPYRIGHT readme.html changes.html out/* \
 
 
 %changelog
+* Mon Jan  4 2016 Thomas Moschny <thomas.moschny@gmx.de> - 1.4.3-4
+- Mark license with %%license.
+- Remove obsolete conditionals for lua version.
+
 * Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.4.3-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
