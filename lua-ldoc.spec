@@ -4,8 +4,8 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:		lua-ldoc
-Version:	1.4.3
-Release:	5%{?dist}
+Version:	1.4.5
+Release:	1%{?dist}
 BuildArch:	noarch
 Summary:	Lua documentation generator
 # the included css code is BSD licensed
@@ -14,10 +14,10 @@ URL:		https://github.com/stevedonovan/ldoc
 Source0:	https://github.com/stevedonovan/LDoc/archive/%{version}/LDoc-%{version}.tar.gz
 BuildRequires:	lua >= %{luaver}
 BuildRequires:	lua-markdown
-BuildRequires:	lua-penlight
+BuildRequires:	lua-penlight >= 1.4.0
 Requires:	lua >= %{luaver}
 Requires:	lua-markdown
-Requires:	lua-penlight
+Requires:	lua-penlight >= 1.4.0
 
 %global __requires_exclude_from %{_docdir}
 
@@ -84,11 +84,7 @@ cp -av %{!?_licensedir:COPYRIGHT} readme.html changes.html out/* \
 
 %files
 %dir %{_pkgdocdir}
-%if 0%{?_licensedir:1}
 %license COPYRIGHT
-%else
-%{_pkgdocdir}/COPYRIGHT
-%endif
 %{_pkgdocdir}/readme.html
 %{_bindir}/ldoc
 %{luapkgdir}/ldoc
@@ -105,6 +101,9 @@ cp -av %{!?_licensedir:COPYRIGHT} readme.html changes.html out/* \
 
 
 %changelog
+* Wed Aug 31 2016 Thomas Moschny <thomas.moschny@gmx.de> - 1.4.5-1
+- Update to 1.4.5.
+
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 1.4.3-5
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
