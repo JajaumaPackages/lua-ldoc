@@ -4,7 +4,7 @@
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:		lua-ldoc
-Version:	1.4.5
+Version:	1.4.6
 Release:	1%{?dist}
 BuildArch:	noarch
 Summary:	Lua documentation generator
@@ -101,6 +101,9 @@ cp -av %{!?_licensedir:COPYRIGHT} readme.html changes.html out/* \
 
 
 %changelog
+* Tue Nov 29 2016 Thomas Moschny <thomas.moschny@gmx.de> - 1.4.6-1
+- Update to 1.4.6.
+
 * Wed Aug 31 2016 Thomas Moschny <thomas.moschny@gmx.de> - 1.4.5-1
 - Update to 1.4.5.
 
