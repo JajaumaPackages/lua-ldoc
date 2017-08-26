@@ -1,11 +1,11 @@
-%global luaver 5.3
+%{!?luaver: %global luaver %(lua -e "print(string.sub(_VERSION, 5))")}
 %global luapkgdir %{_datadir}/lua/%{luaver}
 
 %{!?_pkgdocdir: %global _pkgdocdir %{_docdir}/%{name}-%{version}}
 
 Name:		lua-ldoc
 Version:	1.4.6
-Release:	3%{?dist}
+Release:	4%{?dist}
 BuildArch:	noarch
 Summary:	Lua documentation generator
 # the included css code is BSD licensed
@@ -101,6 +101,9 @@ cp -av %{!?_licensedir:COPYRIGHT} readme.html changes.html out/* \
 
 
 %changelog
+* Sat Aug 26 2017 Jajauma's Packages <jajauma@yandex.ru> - 1.4.6-4
+- Fixes for building with older lua on RHEL
+
 * Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.4.6-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
